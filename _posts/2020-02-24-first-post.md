@@ -3,9 +3,11 @@ title:  "Django 환경 설정하기"
 excerpt: "Django를 사용하여 웹페이지를 만들기 위해 처음 해야할 설정들과 명령어"
 
 categories:
-  - Blog
+  - Django
 tags:
-  - Blog
+  - Django
+  - DRF
+  - 환경설정
 last_modified_at: 2020-03-10T17:21:00-05:00
 ---
 
