@@ -1,12 +1,8 @@
 # main links
 main:
   - title: "Home"
-    url: https://justzinio.github.io/
-  # - title: "Sample Posts"
-  #   url: /year-archive/
-  # - title: "Sample Collections"
-  #   url: /collection-archive/
-  # - title: "Sitemap"
-  #   url: /sitemap/
+    url: https://justzino.github.io/
+  - title: "Categories"
+    url: /categories/
   # - title: "Quick-Start Guide"
   #   url: https://mmistakes.github.io/minimal-mistakes/docs/quick-start-guide/
