@@ -85,7 +85,7 @@ class Pet(models.Model):
     age = models.InteagerField()
 ```
 
->     > 위와 같은 Pet 모델을 직렬화 할 것이다
+> 위와 같은 Pet 모델을 직렬화 할 것이다
 
 ---
 
