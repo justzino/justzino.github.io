@@ -16,7 +16,7 @@ minimal_mistakes_skin: "default" # "air", "aqua", "contrast", "dark", "dirt", "n
 
 # Site Settings
 locale: "en-US"
-title: "Site Title"
+title: "Just Zino"
 title_separator: "-"
 subtitle: # site tagline that appears below site title in masthead
 name: "Just Zino"
@@ -92,7 +92,7 @@ analytics:
 
 # Site Author
 author:
-  name: "Just Zino"
+  name: "이진호"
   avatar: # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
   bio: "걸음마 시작한 개발자"
   location: "Seoul, South Korea"
