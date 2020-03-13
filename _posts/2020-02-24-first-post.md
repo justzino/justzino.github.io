@@ -1,5 +1,5 @@
 ---
-title:  "Django 환경 설정하기"
+title: "Django 환경 설정하기"
 excerpt: "Django를 사용하여 웹페이지를 만들기 위해 처음 해야할 설정들과 명령어"
 
 categories:
@@ -33,32 +33,30 @@ last_modified_at: 2020-03-10T17:21:00-05:00
 #### 설정
 
 > settings.py
->
-> <pre><code>
-> INSTALLED_APPS = [
 
+```python
+INSTALLED_APPS = [
     ...
     'rest_framework',
-
 ]
-</code></pre>
+```
 
 #### request.data (PUT, PATCH)
 
 Django 에서 POST로 온 폼 데이터는 request.POST.get('name') 형태로 불러 올 수 있었지만 PUT과 PATCH는 지원하지 않는다. DRF에서는 이를 request.data로 불러올 수 있다.
 
 > views.py
->
-> <pre><code>
-> from rest_framework.decorators import api_view
-> 
-> @api_view(['PATCH'])
-> def changePassword(request):
+
+```python
+from rest_framework.decorators import api_view
+
+@api_view(['PATCH'])
+def changePassword(request):
 
     pw = request.data.get('password')
     ...
+```
 
-</code></pre>
 이런식으로 POST 로 온 form 데이터를 불러올 수 있다.
 
 ### 직렬화(Serializer)
@@ -72,14 +70,13 @@ API 통신의 데이터 타입은 주로 JSON 으로 한다. 하지만 Django에
 DRF의 Serializer는 Django의 Form과 사용방법이 거의 비슷하다.
 
 > models.py
->
-> <pre><code>
-> class Pet(models.Model):
+
+```python
+class Pet(models.Model):
 
     name = models.CharField(max_length=50)
     age = models.InteagerField()
-
-</code></pre>
+```
 
 >     > 위와 같은 Pet 모델을 직렬화 할 것이다
 
@@ -88,96 +85,94 @@ DRF의 Serializer는 Django의 Form과 사용방법이 거의 비슷하다.
 먼저 App 폴더 안에 serializers.py라는 파일을 만들어주자
 
 > serializers.py
->
-> <pre><code>
-> from rest_framework import serializers
-> 
-> class PetSerializer(serializers.Serializer):
+
+````py
+from rest_framework import serializers
+class PetSerializer(serializers.Serializer):
 
     name = serializers.CharField(max_length=50)
-    age = serializers.IntegerField()
-
-</code></code>
+    age = serializers.IntegerField()```
+````
 
 #### JSON 변환과정
 
 이 Serializer를 불러와서 JSON으로 반환해주자
 
 > views.py
->
-> <pre><code>
-> from .serializers import PetSerializer
-> 
-> def getPet(request):
+
+```py
+from .serializers import PetSerializer
+
+def getPet(request):
 
     pet = Pet.objects.get(pk=1)
     serializer = PetSerializer( pet )
-
-</code></code>
+```
 
 \_id가 1인 펫을 QuerySet 이라는 복잡한 Django type에서 Python의 Dictionary로 변환하였다
 
 이제 이것을 전송하기 위해 문자열로 변환해주자
 
-> <pre><code>
-> from .serializers import PetSerializer
-> from rest_framework.renderers import JSONRenderer
-> from django.http import HttpResponse
-> 
-> def getPet(request):
+````py
+from .serializers import PetSerializer
+from rest_framework.renderers import JSONRenderer
+from django.http import HttpResponse
+
+def getPet(request):
 
     pet = Pet.objects.get(pk=1)
     serializer = PetSerializer(pet)
     data = JSONRenderer().render(serializer.data)
-    return HttpResponse(data)
-
-</code></pre>
+    return HttpResponse(data)```
+````
 
 #### Array 직렬화
 
 위는 하나의 객체만 직렬화 하는 과정이다. 이번엔 여러개의 객체 인스턴스를 배열에 담아 직렬화 해보자
 
 > views.py
->
-> <pre><code>
-> from .serializers import PetSerializer
-> 
-> def getPets(request):
+
+```py
+from .serializers import PetSerializer
+
+def getPets(request):
 
     pets = Pet.objects.all()
     serializer = PetSerializer( pets, many=True )
-
-</code></pre>
+```
 
 many=True 만 같이 넣어주면 다수의 Pet 모델이 들어온 것을 인식한다
 
 하지만 현재의 serializer.data는 이런식의 데이터이다
 
+```py
 [ {'name': 'pet_name'},{ ...} ]
+```
 
 json은 배열이 아니라 object 형태로 작성해야하기 때문에 이 배열을 object 에 담아 문자열로 변환시키자
 
 > views.py
->
-> <pre><code>
-> from .serializers import PetSerializer
-> 
-> import json
-> 
-> def getPets(request):
+
+```py
+from .serializers import PetSerializer
+
+import json
+
+def getPets(request):
 
     pets = Pet.objects.all()
     serializer = PetSerializer( pets, many=True )
     data = json.dumps({'pets':serializer.data})
     return HttpResponse(data)
-
-</code></pre>
+```
 
 >     >이번엔 내장모듈인 json을 활용해 인코딩하였다
 
 이제 아래와 같은 문자열이 반환될 것이다
 
+```py
 { 'pets' : [ {...}, ... ] }
+```
 
 ### jQuery
 
