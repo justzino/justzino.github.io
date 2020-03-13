@@ -17,7 +17,7 @@ last_modified_at: 2020-03-10T17:21:00-05:00
 - .\Scripts\activate.ps1 가상환경 실행
 - pip install django django 설치
 - django-admin startproject 폴더명 jango project를 실행할 폴더 생성
-- django-admin startapp 이름(fcuser, order, project...) app생성
+- django-admin startapp 이름(user, order, project...) app생성
 - python manage.py createsuperuser 관리자 생성
 - python manage.py makemigrations
 - python manage.py migrate
