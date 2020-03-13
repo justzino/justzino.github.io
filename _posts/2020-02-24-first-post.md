@@ -86,10 +86,7 @@ class Pet(models.Model):
     age = models.InteagerField()
 ```
 
-위와 같은 Pet 모델을 직렬화 해보자.
-
----
-
+위와 같은 Pet 모델을 직렬화 해보자.  
 먼저 App 폴더 안에 serializers.py라는 파일을 만들어주자.
 
 _serializers.py_
