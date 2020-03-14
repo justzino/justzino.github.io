@@ -1,30 +1,23 @@
 ---
-title: "Django 사용법 및 DRF 사용법"
-excerpt: "Django를 사용하여 웹페이지를 만들기 위해 처음 해야할 설정들과 명령어"
+title: "Django로 웹 개발하기 - DRF (Django REST Framework)"
+excerpt: " DRF 사용, Serializer, Json 변환, Array 직렬화"
 
 categories:
   - Django
 tags:
   - Django
   - DRF
-  - 환경설정
-last_modified_at: 2020-03-10T17:21:00-05:00
+  - Serializer
+  - JSON 변환
+  - jQuery
+
+last_modified_at: 2020-03-14T21:00:00-22:00
 ---
 
 ## 사용 명령어
 
-- virtualenv 폴더명(venv) `가상환경 생성`
-- .\Scripts\activate.ps1 `가상환경 실행`
-- pip install django `django 설치`
-- django-admin startproject 폴더명 `Django project를 실행할 폴더 생성`
-- django-admin startapp 이름(user, order, project...) `app생성`
-- python manage.py createsuperuser `관리자 생성`
-- python manage.py makemigrations
-- python manage.py migrate
 - pip install djangorestframework `REST API 를 위한 프레임워크 DRF 설치`
 - pip freeze > requirement.txt `설치한 pip 목록 저장`
-
----
 
 # DRF (Django REST Framework)
 
