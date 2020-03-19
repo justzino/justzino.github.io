@@ -1,17 +1,17 @@
 ---
-title: "Django로 웹 페이지 만들기 - 4. login 기능 만들기"
-excerpt: "Django로 login 기능 만들기"
+title: "Django로 웹 개발하기 - 4. login, logout 기능 만들기"
+excerpt: "Django로 login, logout 기능 만들기"
 
 categories:
   - Django
 tags:
   - Django
   - 웹개발
-  - Post 모델
+  - login 기능
 last_modified_at: 2020-03-14T13:00:00-15:00
 ---
 
-이 글은 fast_campus의 파이썬 웹 개발 수업을 듣고 정리, 추가한 내용으로 장고 내장 모듈로 login 기능을 만들어 보자.
+이 글은 fast_campus의 파이썬 웹 개발 수업을 듣고 정리, 추가한 내용으로 장고 내장 모듈로 login, logout 기능을 만들어 보자.
 
 ## Django 기본 인증
 

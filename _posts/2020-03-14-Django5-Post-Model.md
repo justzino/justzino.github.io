@@ -1,5 +1,5 @@
 ---
-title: "Django로 웹 페이지 만들기 - 5. Post 모델 만들기"
+title: "Django로 웹 개발하기 - 5. Post 모델 만들기"
 excerpt: "Django로 Post 모델 만들기"
 
 categories:
