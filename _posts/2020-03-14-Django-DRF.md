@@ -74,7 +74,6 @@ _models.py_
 
 ```python
 class Pet(models.Model):
-
     name = models.CharField(max_length=50)
     age = models.InteagerField()
 ```
@@ -87,7 +86,6 @@ _serializers.py_
 ````py
 from rest_framework import serializers
 class PetSerializer(serializers.Serializer):
-
     name = serializers.CharField(max_length=50)
     age = serializers.IntegerField()```
 ````
@@ -102,7 +100,6 @@ _views.py_
 from .serializers import PetSerializer
 
 def getPet(request):
-
     pet = Pet.objects.get(pk=1)
     serializer = PetSerializer( pet )
 ```
@@ -117,7 +114,6 @@ from rest_framework.renderers import JSONRenderer
 from django.http import HttpResponse
 
 def getPet(request):
-
     pet = Pet.objects.get(pk=1)
     serializer = PetSerializer(pet)
     data = JSONRenderer().render(serializer.data)
@@ -135,7 +131,6 @@ def getPet(request):
 from .serializers import PetSerializer
 
 def getPets(request):
-
     pets = Pet.objects.all()
     serializer = PetSerializer( pets, many=True )
 ```
@@ -158,7 +153,6 @@ from .serializers import PetSerializer
 import json
 
 def getPets(request):
-
     pets = Pet.objects.all()
     serializer = PetSerializer( pets, many=True )
     data = json.dumps({'pets':serializer.data})
