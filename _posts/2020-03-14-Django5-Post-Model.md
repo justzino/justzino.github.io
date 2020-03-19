@@ -8,7 +8,7 @@ tags:
   - Django
   - 웹개발
   - Post 모델
-last_modified_at: 2020-03-15T01:00:00-02:00
+last_modified_at: 2020-03-15T15:00:00-17:00
 ---
 
 이 글은 fast_campus의 파이썬 웹 개발 수업을 듣고 정리한 내용으로, Django에서 Post 모델을 만들어 보자.
