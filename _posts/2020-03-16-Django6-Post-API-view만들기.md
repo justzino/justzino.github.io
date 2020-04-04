@@ -8,7 +8,7 @@ tags:
   - Django
   - 웹개발
   - Post 모델
-  -API
+  - API
 last_modified_at: 2020-03-16T13:00:00-15:00
 ---
 
